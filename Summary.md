@@ -62,10 +62,25 @@ Not uninstalling. Error if package is not loaded
 
 
 
-## L4 Command Line and Editor
+## L4 Command Line and Data Editor
 Use external software
 *R Studio*
 * Command line vs Scripts
 [1] Need of text editor
 `Built in- RGui` File> New Script
 Execute: highlight and `Ctrl+R`
+
+```R
+# script
+x = 20
+y = 30
+z = x + y
+x
+y
+z
+```
+
+Editors:
+- [X] R Studio
+- [ ] Tin R
+
