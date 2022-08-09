@@ -254,3 +254,319 @@ In c(7, 9, 3, 4)%%c(3, 2, 3) :
 > 
 ```
 🔖*Take a paper and verify the outputs of the command with pen-paper calculations. Now try to combine all the topic learnt so far.*
+*`c(elements)` is used to create a data vector*
+## Lecture 11: Built in Functions and Assignments
+
+ Built-in functions:
+- `max` : Same output with (individual elements) or without data vector
+- `min` : Same output with (individual elements) or without data vector
+- ⚠️`mean` : Different output
+
+```R
+> max(1.2,3.4,-7.8)
+[1] 3.4
+> max(c(1.2,3.4,-7.8))
+[1] 3.4
+> max(0,-1,-2)
+[1] 0
+> min(1.2,3.4,-7.8)
+[1] -7.8
+> min(c(1.2,3.4,-7.8))
+[1] -7.8
+> mean(2,3,4)
+[1] 2
+> mean(c(2,3,4))
+[1] 3
+> max(23,170,-98)
+[1] 170
+> min(23,170,-98)
+[1] -98
+> min(c(23,170,-98))
+[1] -98
+> max(c(23,170,-98))
+[1] 170
+```
+Different functions are implimented by different developers. Some use `c` command to input the data and some don't use `c` command.
+
+❓What should you do? Which one is correct way?
+✔️ Solution 1: When you use `c` command (data vector command) while providing input, you will always correct output.
+
+`mean(a,b,c)` will return a. It will read first value and find the mean i.e. `mean(a,b,c)=mean(a)=a/1=a`
+```R
+> mean(1,2,3)
+[1] 1
+> mean(1)
+[1] 1
+```
+### 11.2 Some other useful functions:
+🔖*Most of them are similar to Python, isn't it.*
+**Note**
+- `sin(x)` : Calculate the sine of x 
+- `asin(x)` : Calculate the sine inverse of x 
+- `sinh(x)` : Calculate the hyperbolic sine of x 
+- `asinh(x)` : Calculate the inverse of hyperbolic sine of x 
+![image](https://user-images.githubusercontent.com/86161735/183578003-b7616244-22be-4c56-85cd-5a141227e908.png)
+
+Examples
+```R
+> abs(-4)
+[1] 4
+> abs(c(-1,-2,-3,4,5))
+[1] 1 2 3 4 5
+> sqrt(4)
+[1] 2
+> sqrt(c(1,2,3,4,5))
+[1] 1.000000 1.414214 1.732051 2.000000 2.236068
+> sqrt(c(1,4,9))
+[1] 1 2 3
+> sqrt(c(-1,-4,-9))
+[1] NaN NaN NaN
+Warning message:
+In sqrt(c(-1, -4, -9)) : NaNs produced
+> sum(c(2,3,4,5)
++ )
+[1] 14
+> prod(c(2,3,4,5))
+[1] 120
+> round(1.23)
+[1] 1
+> round(1.5)
+[1] 2
+> round(1.51)
+[1] 2
+> round(1.50)
+[1] 2
+> round(2.50)
+[1] 2
+> round(2.51)
+[1] 3
+> round(2.555)
+[1] 3
+> round(2.465)
+[1] 2
+> round(1.465)
+[1] 1
+> round(1.46)
+[1] 1
+> round(0.1)
+[1] 0
+> round(-0.1)
+[1] 0
+> round(-0.5)
+[1] 0
+> round(0.5)
+[1] 0
+> round(1.5)
+[1] 2
+> round(-1.5)
+[1] -2
+> log(10) #Natural log to the base e
+[1] 2.302585
+> log(exp(1))
+[1] 1
+> log(c(10,100,1000))
+[1] 2.302585 4.605170 6.907755
+> log10(10)
+[1] 1
+> log10(100)
+[1] 2
+> log10(c(10,100,1000))
+[1] 1 2 3
+```
+**More examples**
+```R
+> abs(-8)
+[1] 8
+> abs(c(-8,-9,1,2))
+[1] 8 9 1 2
+> sqrt(9)
+[1] 3
+> sqrt(2)
+[1] 1.414214
+> 2^0.5
+[1] 1.414214
+> sqrt(c(2,3,4,5))
+[1] 1.414214 1.732051 2.000000 2.236068
+> sqrt(c(2,3,4,-5))
+[1] 1.414214 1.732051 2.000000      NaN
+Warning message:
+In sqrt(c(2, 3, 4, -5)) : NaNs produced
+> sum(c(2,3,4,5))
+[1] 14
+> prod(c(2,3,4,5))
+[1] 120
+> 2+3+4+5
+[1] 14
+> 2*3*$*5
+Error: unexpected '$' in "2*3*$"
+> 2*3*4*5
+[1] 120
+> round(100.4)
+[1] 100
+> round(100.5)
+[1] 100
+> round(100.6)
+[1] 101
+> round(101.4)
+[1] 101
+> round(101.)
+[1] 101
+> round(101.5)
+[1] 102
+> round(101.6)
+[1] 102
+> log(10)
+[1] 2.302585
+> log(c(10,12,14))
+[1] 2.302585 2.484907 2.639057
+> log10(c(100,200,300))
+[1] 2.000000 2.301030 2.477121
+```
+
+### 11.3 Assignments
+```R
+= c(1,2,3,4)
+> x1
+[1] 1 2 3 4
+> x2 = x1^2
+> x2
+[1]  1  4  9 16
+> c(1,2,3,4) + sum(c(1,2,3,4)) * prod(c(1,2))
+[1] 21 22 23 24
+> abs( c(1,2,3,4) - sum(c(1,2,3,4))*prod(c(1,2,3,4)))
+[1] 239 238 237 236
+> abs( c(1,2,3,4) - sum(c(1,2,3,4))*prod(c(1,2)))
+[1] 19 18 17 16
+```
+
+*Builtin functions aren't difficult at all.*
+
+## Lecture 12: Matrices
+*Basics. These are the backbone of ML and DL Models🥲
+![image](https://user-images.githubusercontent.com/86161735/183583409-c22d1d1d-0015-40fb-9da9-42a0bd8f6db8.png)
+Command: `matrix`
+Parameters to be passed:
+`nrow` - No of rows in the matrix
+`ncol` - No of columns in the matrix
+`data` - Actual data values
+`Arrangement` - Written column-wise by default
+```R
+> x = matrix(nrow=4,ncol=2,data=c(1,2,3,4,5,6,7,8))
+> x
+     [,1] [,2]
+[1,]    1    5
+[2,]    2    6
+[3,]    3    7
+[4,]    4    8
+> 
+```
+### 12.2 Accessing
+```R
+> x
+     [,1] [,2]
+[1,]    1    5
+[2,]    2    6
+[3,]    3    7
+[4,]    4    8
+> x[3,2] #[row,col]
+[1] 7
+> x[1,1] #[row,col]
+[1] 1
+> x[-1,-1] #[row,col]
+[1] 6 7 8
+> x[1,2]
+[1] 5
+```
+```R
+> x
+     [,1] [,2]
+[1,]    1    5
+[2,]    2    6
+[3,]    3    7
+[4,]    4    8
+> x[4,2]
+[1] 8
+> x[2,4]
+Error in x[2, 4] : subscript out of bounds
+> x(2,2)
+Error in x(2, 2) : could not find function "x"
+> #Use only square brackets
+ ```
+### 12.3 Entering data column wise in a matrix:
+> Till Now
+> ![image](https://user-images.githubusercontent.com/86161735/183586134-2730c884-0200-4bb2-aed3-d374a8bb86af.png)
+Use `byrow` parameter. It take boolean value `TRUE` or `FALSE` 
+`byrow=FALSE` : By defualt
+```R
+> x = matrix(nrow=4,ncol=2,data=c(1,2,3,4,5,6,7,8),byrow=TRUE)
+> x
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6
+[4,]    7    8
+> 
+```
+Recap 
+```R
+> x = matrix(nrow=4,ncol=2,data=c(1,2,3,4,5,6,7,8)
+
+> x = matrix(nrow=4,ncol=2,data=c(1,2,3,4,5,6,7,8))
+> x
+     [,1] [,2]
+[1,]    1    5
+[2,]    2    6
+[3,]    3    7
+[4,]    4    8
+> x = matrix(nrow=4,ncol=2,data=c(1,2,3,4,5,6,7,8),byrow=FALSE)
+> x
+     [,1] [,2]
+[1,]    1    5
+[2,]    2    6
+[3,]    3    7
+[4,]    4    8
+> y = matrix(nrow=4,ncol=2,data=c(1,2,3,4,5,6,7,8),byrow=TRUE)
+> y
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6
+[4,]    7    8
+> 
+```
+![image](https://user-images.githubusercontent.com/86161735/183586527-d2db6bb2-2742-47b9-9b74-a7879c261a23.png)
+
+### 12.4 Properties of a Matrix
+`dim(x)` : Tells the dimension of the matrix
+`row(x)` : Tells the no. of rows of the matrix
+`col(x)` : Tells the no. of columns of the matrix
+`mode(x)` : Informs the type/storage mode of an object e.g. `numerical`,`logical` etc.
+`attributes(x)` : Provides all attrinbutes of an object. Informs the dimension of matrix.
+`help("matrix")`
+
+```R
+> x
+     [,1] [,2]
+[1,]    1    5
+[2,]    2    6
+[3,]    3    7
+[4,]    4    8
+> dim(x)
+[1] 4 2
+> nrow(x)
+[1] 4
+> ncol(x)
+[1] 2
+> mode(x)
+[1] "numeric"
+> attributes(x)
+$dim
+[1] 4 2
+
+> help("matrix")
+starting httpd help server ... done
+```
+-define
+- read
+- extract
+- operations
