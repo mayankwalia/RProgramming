@@ -21,6 +21,7 @@ demo(graphics)
 ~~demo(graphic)~~
 ```
 ```
+*demonstration function gives us step-by-step application of the given package and how to use it.*
 
 ## Packages and Libraries
 
@@ -43,6 +44,7 @@ e.g. to load `spatial` library:
 `packageDescription("spatial")`
 `library(help=spatial)`
 
+🔖Note: *`packageDescription()` only gives a brief information about the package. However,  `library(help=)` opens the package documentation which provides all the specifics of the package including commands in it.*
 ### Installing Packages and Libraries
 `install.packages("name")`
 `install.packages("boot")`
