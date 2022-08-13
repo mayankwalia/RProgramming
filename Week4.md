@@ -404,3 +404,150 @@ $vectors
 ```
 🟡 *There is a long list of matrix multiplications.*
 
+## Lecture 17: Relational and Logical Operators
+
+🟢 ![image](https://user-images.githubusercontent.com/86161735/184470058-2a027b84-108a-4444-9f6c-0adbdca2226c.png)
+![image](https://user-images.githubusercontent.com/86161735/184470558-31fffe87-d426-4b18-8118-78600806295e.png)
+
+```R
+> x=8
+> (x<10) || (x<2)
+[1] TRUE
+> x=18
+> (x<10) || (x<2)
+[1] FALSE
+> x=c(8,18)
+> (x<10) || (x<2) #operates only on the first elements
+[1] TRUE
+Warning message:
+In (x < 10) || (x < 2) : 'length(x) = 2 > 1' in coercion to 'logical(1)'
+> (x<10) | (x<2) #operates on all the elements
+[1]  TRUE FALSE
+> x=5
+> (x<10) && (x>2)
+[1] TRUE
+> x=15
+> (x<10) && (x>2)
+[1] FALSE
+> x=c(8,18)
+> (x<10) && (x>2)
+[1] TRUE
+Warning messages:
+1: In (x < 10) && (x > 2) :
+  'length(x) = 2 > 1' in coercion to 'logical(1)'
+2: In (x < 10) && (x > 2) :
+  'length(x) = 2 > 1' in coercion to 'logical(1)'
+> (x<10) & (x>2)
+[1]  TRUE FALSE
+> x =1:6
+> x
+[1] 1 2 3 4 5 6
+> # or x=c(1,2,3,4,5,6)
+> (x>2) & (x<5)
+[1] FALSE FALSE  TRUE  TRUE FALSE FALSE
+> x[(x>2) & (x<5)]
+[1] 3 4
+> # x[.conditionals.] Finds which values are TRUE for the condition
+> # x[condition] Finds which values are TRUE for the condition
+> x =1:6
+> (x>2) | (x<5)
+[1] TRUE TRUE TRUE TRUE TRUE TRUE
+> x[(x>2) | (x<5)]
+[1] 1 2 3 4 5 6
+> x=11:18
+> x
+[1] 11 12 13 14 15 16 17 18
+> x[1]
+[1] 11
+> x[4]
+[1] 14
+> # Indexing starts from 1 instead of 0
+> (x>2) && (x<5)
+[1] FALSE
+Warning messages:
+1: In (x > 2) && (x < 5) : 'length(x) = 8 > 1' in coercion to 'logical(1)'
+2: In (x > 2) && (x < 5) : 'length(x) = 8 > 1' in coercion to 'logical(1)'
+> #Above is equivalent to
+> (x[1]>2) && (x[1]<5)
+[1] FALSE
+```
+
+## Lecture 17: Relational and Logical Operators
+
+| **x** | **y** | **x or y** | **x and y** |
+|:-----:|:-----:|:----------:|:-----------:|
+| FALSE | FALSE |    FALSE   |    FALSE    |
+| FALSE |  TRUE |    TRUE    |    FALSE    |
+|  TRUE | FALSE |    TRUE    |    FALSE    |
+|  TRUE |  TRUE |    TRUE    |     TRUE    |
+```
+> x=TRUE
+> y=FALSE
+> x&y
+[1] FALSE
+> x|y
+[1] TRUE
+> !x
+[1] FALSE
+> !y
+[1] TRUE
+> Logical1=(x>2)
+> Logical1
+[1] FALSE
+> x=5
+> Logical1=(x>2)
+> Logical1
+[1] TRUE
+> is.logical(Logical1)
+[1] TRUE
+> Logical2=(x<10)
+> Logical2
+[1] TRUE
+> is.logical(Logical2)
+[1] TRUE
+> Logical3=(x!=5)
+> Logical3
+[1] FALSE
+> is.logical(Logical3)
+[1] TRUE
+> x=5
+> Logical4=(2*x>11)
+> Logical4
+[1] FALSE
+> is.logical(Logical4)
+[1] TRUE
+> Logical5=(3*x><20)
+Error: unexpected '<' in "Logical5=(3*x><"
+> Logical5=(3*x<20)
+> Logical5
+[1] TRUE
+> is.logical(Logical5)
+[1] TRUE
+> x=c(1,2,3)
+> y=c(4,5,6)
+> x>y
+[1] FALSE FALSE FALSE
+> x<y
+[1] TRUE TRUE TRUE
+> x!=y
+[1] TRUE TRUE TRUE
+> x==y
+[1] FALSE FALSE FALSE
+> isTRUE(8<6)
+[1] FALSE
+> 8<6
+[1] FALSE
+> isFALSE(8<6)
+[1] TRUE
+> !(8<6)
+[1] TRUE
+> isTRUE(8>6)
+[1] TRUE
+> isFALSE(8>6)
+[1] FALSE
+> !(8>6)
+[1] FALSE
+> 
+```
+
+
