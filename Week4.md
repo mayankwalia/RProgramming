@@ -480,7 +480,8 @@ Warning messages:
 | FALSE |  TRUE |    TRUE    |    FALSE    |
 |  TRUE | FALSE |    TRUE    |    FALSE    |
 |  TRUE |  TRUE |    TRUE    |     TRUE    |
-```
+
+```R
 > x=TRUE
 > y=FALSE
 > x&y
