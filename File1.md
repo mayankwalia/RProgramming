@@ -1370,5 +1370,25 @@ Error in matrix(21:29, 3, 3, byrow = True) : object 'True' not found
 > x=matrix(61:69,3,3,byrow=F)
 > x[3,2]
 [1] 66
-> 
+>
+> x=matrix(3,3,data=c(10,20,30,40,50,60,70,80,90),byrow=T)
+> x
+     [,1] [,2] [,3]
+[1,]   10   20   30
+[2,]   40   50   60
+[3,]   70   80   90
+> x[,3]
+[1] 30 60 90
+> x[1,]
+[1] 10 20 30
+> x=matrix(61:69,3,3,byrow=F)
+> x[3,2]
+[1] 66
+> x=matrix(101:150,25,2,byrow=T)
+> dim(x)
+[1] 25  2
+> y=matrix(201:250,25,2,byrow=F)
+> dim(y)
+[1] 25  2
+
 ```
